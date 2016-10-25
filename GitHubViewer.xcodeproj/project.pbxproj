@@ -10,6 +10,7 @@
 		DD083B1C1DBD82B600962CC9 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD87A6C41DBD81A50098F4F0 /* Alamofire.framework */; };
 		DD083B1D1DBD82B600962CC9 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DD87A6C41DBD81A50098F4F0 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DD2FA70F1DBEE9F700C83E7B /* HttpStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2FA70E1DBEE9F700C83E7B /* HttpStack.swift */; };
+		DD2FA7121DBEECC400C83E7B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2FA7111DBEECC400C83E7B /* User.swift */; };
 		DD85CBBA1DADA67B00C42E11 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD85CBB91DADA67B00C42E11 /* AppDelegate.swift */; };
 		DD85CBBC1DADA67B00C42E11 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD85CBBB1DADA67B00C42E11 /* ViewController.swift */; };
 		DD85CBBF1DADA67B00C42E11 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD85CBBD1DADA67B00C42E11 /* Main.storyboard */; };
@@ -101,6 +102,7 @@
 
 /* Begin PBXFileReference section */
 		DD2FA70E1DBEE9F700C83E7B /* HttpStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpStack.swift; sourceTree = "<group>"; };
+		DD2FA7111DBEECC400C83E7B /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		DD85CBB61DADA67B00C42E11 /* GitHubViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD85CBB91DADA67B00C42E11 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD85CBBB1DADA67B00C42E11 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -142,6 +144,14 @@
 			name = Network;
 			sourceTree = "<group>";
 		};
+		DD2FA7101DBEECB600C83E7B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DD2FA7111DBEECC400C83E7B /* User.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		DD85CBAD1DADA67B00C42E11 = {
 			isa = PBXGroup;
 			children = (
@@ -164,6 +174,7 @@
 		DD85CBB81DADA67B00C42E11 /* GitHubViewer */ = {
 			isa = PBXGroup;
 			children = (
+				DD2FA7101DBEECB600C83E7B /* Model */,
 				DD2FA7061DBEE9BB00C83E7B /* Network */,
 				DDCD44B11DBD623E00497F78 /* ViewControllers */,
 				DD85CBB91DADA67B00C42E11 /* AppDelegate.swift */,
@@ -373,6 +384,7 @@
 				DD2FA70F1DBEE9F700C83E7B /* HttpStack.swift in Sources */,
 				DD85CBBC1DADA67B00C42E11 /* ViewController.swift in Sources */,
 				DD85CBDA1DADBAE400C42E11 /* UserViewController.swift in Sources */,
+				DD2FA7121DBEECC400C83E7B /* User.swift in Sources */,
 				DD85CBBA1DADA67B00C42E11 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

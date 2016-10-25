@@ -27,17 +27,11 @@ class UserViewController: UIViewController {
         }
                 
         HttpStack.getUser(username: username!).responseJSON { response in
-            print(response.request)  // original URL request
-            print(response.response) // HTTP URL response
-            print(response.data)     // server data
-            print(response.result)   // result of response serialization
-            
             if let result = response.result.value {
                 let JSON = result as! NSDictionary
-                print("JSON: \(JSON)")
+                let user = User(JSON: JSON)
                 
-                let name = JSON.object(forKey: "name");
-                print("Name: \(name!)");
+                print(user.blog!)
             }
         }
     }
