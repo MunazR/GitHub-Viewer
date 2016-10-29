@@ -51,11 +51,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
     // MARK: Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         if (checkValidUsername()) {
             let username = usernameTextField.text ?? ""
-            let nav = segue.destination as! UINavigationController
-            let userViewController = nav.topViewController as! UserViewController
+            let userViewController = segue.destination as! UserViewController
             
             userViewController.username = username
         }

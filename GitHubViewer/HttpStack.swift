@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import AlamofireImage
 
 class HttpStack {
     static let BASE_URL = "https://api.github.com/"
@@ -15,5 +16,9 @@ class HttpStack {
     
     static func getUser(username: String) -> Alamofire.DataRequest {
         return Alamofire.request(USER_URL + username)
+    }
+    
+    static func getImage(imageUrl: String) -> Alamofire.DataRequest {
+        return Alamofire.request(imageUrl)
     }
 }
