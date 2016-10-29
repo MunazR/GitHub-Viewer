@@ -24,13 +24,16 @@ class UserViewController: UIViewController {
     @IBOutlet weak var userBlog: UILabel!
     @IBOutlet weak var userJoined: UILabel!
     @IBOutlet weak var userUpdated: UILabel!
+    @IBOutlet weak var userBio: UILabel!
+    
+    @IBOutlet weak var userPublicRepos: UIButton!
+    @IBOutlet weak var userFollowers: UIButton!
+    @IBOutlet weak var userFollowing: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        userAvatar.layer.borderWidth = 2
-        
-        if (username?.isEmpty)! {
+        if (username == nil || (username?.isEmpty)!) {
             print("UserViewController: Username empty")
             return
         } else {
@@ -40,6 +43,11 @@ class UserViewController: UIViewController {
         HttpStack.getUser(username: username!).responseJSON { response in
             if let result = response.result.value {
                 let JSON = result as! NSDictionary
+                
+                if JSON.object(forKey: "message") != nil {
+                    return
+                }
+                
                 let user = User(JSON: JSON)
                 
                 self.navigationItem.title = user.login
@@ -87,6 +95,18 @@ class UserViewController: UIViewController {
                 
                 self.userJoined.text = "Joined " + dateFormatter.string(from: user.createdAt!)
                 self.userUpdated.text = "Last active " + dateFormatter.string(from: user.updatedAt!)
+                
+                if user.bio != nil {
+                    self.userBio.text = user.bio!
+                } else {
+                    self.userBio.text = "No bio"
+                }
+                
+                self.userPublicRepos.setTitle("\(user.publicRepos!) Public Repos", for: UIControlState.normal)
+                
+                self.userFollowers.setTitle("\(user.followers!) Followers", for: UIControlState.normal)
+                
+                self.userFollowing.setTitle("\(user.following!) Following", for: UIControlState.normal)
             }
         }
     }

@@ -18,7 +18,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        searchButton.isEnabled = false
         usernameTextField.delegate = self;
     }
 
