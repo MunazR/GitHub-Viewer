@@ -30,6 +30,9 @@ class UserViewController: UIViewController {
     @IBOutlet weak var userFollowers: UIButton!
     @IBOutlet weak var userFollowing: UIButton!
     
+    @IBOutlet weak var stackView: UIStackView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,6 +42,9 @@ class UserViewController: UIViewController {
         } else {
             print("UserViewController: " + username!)
         }
+        
+        stackView.isHidden = true
+        activityIndicator.isHidden = false
                 
         HttpStack.getUser(username: username!).responseJSON { response in
             if let result = response.result.value {
@@ -109,6 +115,9 @@ class UserViewController: UIViewController {
                 self.userFollowers.setTitle("\(user.followers!) Followers", for: UIControlState.normal)
                 
                 self.userFollowing.setTitle("\(user.following!) Following", for: UIControlState.normal)
+                
+                self.activityIndicator.isHidden = true
+                self.stackView.isHidden = false
             }
         }
     }
