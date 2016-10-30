@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD04E9881DC5687600B69DAA /* RepoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD04E9871DC5687600B69DAA /* RepoTableViewController.swift */; };
+		DD04E9991DC569FA00B69DAA /* RepoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD04E9981DC569FA00B69DAA /* RepoTableViewCell.swift */; };
+		DD04E99B1DC56DA600B69DAA /* Repo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD04E99A1DC56DA600B69DAA /* Repo.swift */; };
 		DD083B1C1DBD82B600962CC9 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD87A6C41DBD81A50098F4F0 /* Alamofire.framework */; };
 		DD083B1D1DBD82B600962CC9 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DD87A6C41DBD81A50098F4F0 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DD2FA70F1DBEE9F700C83E7B /* HttpStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2FA70E1DBEE9F700C83E7B /* HttpStack.swift */; };
@@ -160,6 +163,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		DD04E9871DC5687600B69DAA /* RepoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoTableViewController.swift; sourceTree = "<group>"; };
+		DD04E9981DC569FA00B69DAA /* RepoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoTableViewCell.swift; sourceTree = "<group>"; };
+		DD04E99A1DC56DA600B69DAA /* Repo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repo.swift; sourceTree = "<group>"; };
 		DD2FA70E1DBEE9F700C83E7B /* HttpStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpStack.swift; sourceTree = "<group>"; };
 		DD2FA7111DBEECC400C83E7B /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		DD6F77241DC2C00F005303D8 /* AlamofireImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AlamofireImage.xcodeproj; path = AlamofireImage/AlamofireImage.xcodeproj; sourceTree = "<group>"; };
@@ -197,6 +203,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DD04E9971DC569ED00B69DAA /* ViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				DD04E9981DC569FA00B69DAA /* RepoTableViewCell.swift */,
+			);
+			name = ViewCells;
+			sourceTree = "<group>";
+		};
 		DD2FA7061DBEE9BB00C83E7B /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -209,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				DD2FA7111DBEECC400C83E7B /* User.swift */,
+				DD04E99A1DC56DA600B69DAA /* Repo.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -250,6 +265,7 @@
 		DD85CBB81DADA67B00C42E11 /* GitHubViewer */ = {
 			isa = PBXGroup;
 			children = (
+				DD04E9971DC569ED00B69DAA /* ViewCells */,
 				DD2FA7101DBEECB600C83E7B /* Model */,
 				DD2FA7061DBEE9BB00C83E7B /* Network */,
 				DDCD44B11DBD623E00497F78 /* ViewControllers */,
@@ -290,6 +306,7 @@
 			children = (
 				DD85CBBB1DADA67B00C42E11 /* ViewController.swift */,
 				DD85CBD91DADBAE400C42E11 /* UserViewController.swift */,
+				DD04E9871DC5687600B69DAA /* RepoTableViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -512,7 +529,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD2FA70F1DBEE9F700C83E7B /* HttpStack.swift in Sources */,
+				DD04E9881DC5687600B69DAA /* RepoTableViewController.swift in Sources */,
 				DD85CBBC1DADA67B00C42E11 /* ViewController.swift in Sources */,
+				DD04E99B1DC56DA600B69DAA /* Repo.swift in Sources */,
+				DD04E9991DC569FA00B69DAA /* RepoTableViewCell.swift in Sources */,
 				DD85CBDA1DADBAE400C42E11 /* UserViewController.swift in Sources */,
 				DD2FA7121DBEECC400C83E7B /* User.swift in Sources */,
 				DD85CBBA1DADA67B00C42E11 /* AppDelegate.swift in Sources */,

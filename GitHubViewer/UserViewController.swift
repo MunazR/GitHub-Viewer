@@ -43,8 +43,10 @@ class UserViewController: UIViewController {
         HttpStack.getUser(username: username!).responseJSON { response in
             if let result = response.result.value {
                 let JSON = result as! NSDictionary
+                let message = JSON.object(forKey: "message") as? String
                 
-                if JSON.object(forKey: "message") != nil {
+                if message != nil {
+                    print("Invalid response: \(message!)")
                     return
                 }
                 
@@ -108,6 +110,25 @@ class UserViewController: UIViewController {
                 
                 self.userFollowing.setTitle("\(user.following!) Following", for: UIControlState.normal)
             }
+        }
+    }
+    
+    // MARK: Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let repoTableViewController = segue.destination as! RepoTableViewController
+        repoTableViewController.username = username!
+
+        if segue.identifier == "showPublicRepos" {
+            repoTableViewController.listType = RepoTableViewController.ListType.publicRepos
+        }
+        
+        if segue.identifier == "showStarredRepos" {
+            repoTableViewController.listType = RepoTableViewController.ListType.starredRepos
+        }
+        
+        if segue.identifier == "showSubscribedRepos" {
+            repoTableViewController.listType = RepoTableViewController.ListType.subscribedRepos
         }
     }
     

@@ -77,9 +77,17 @@ class User {
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZ"
         
-        createdAt = dateFormatter.date(from: JSON.object(forKey: "created_at") as! String)
-        updatedAt = dateFormatter.date(from: JSON.object(forKey: "updated_at") as! String)
+        let strCreatedAt = JSON.object(forKey: "created_at") as? String
+        
+        if strCreatedAt != nil {
+            createdAt = dateFormatter.date(from: strCreatedAt!)
+        }
+        
+        let strUpdatedAt = JSON.object(forKey: "updated_at") as? String
+        
+        if strUpdatedAt != nil {
+            updatedAt = dateFormatter.date(from: strUpdatedAt!)
+        }
     }
-    
-    
+
 }

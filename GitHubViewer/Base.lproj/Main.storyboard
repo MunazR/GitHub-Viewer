@@ -119,6 +119,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bff-zc-cpg">
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="Public Repos"/>
+                                        <connections>
+                                            <segue destination="r0R-hp-n6g" kind="show" identifier="showPublicRepos" id="hYf-cD-ffj"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4dM-kK-eQ7">
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -131,10 +134,16 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ubt-Ma-Ol6">
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="Starred Repos"/>
+                                        <connections>
+                                            <segue destination="r0R-hp-n6g" kind="show" identifier="showStarredRepos" id="VXM-tc-yiw"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u6I-bn-gLz">
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="Subscribed Repos"/>
+                                        <connections>
+                                            <segue destination="r0R-hp-n6g" kind="show" identifier="showSubscribedRepos" id="YJX-07-a80"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M95-Aw-Bqq">
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -151,7 +160,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="WII-MB-Sep" firstAttribute="leading" secondItem="tbd-mz-ME6" secondAttribute="leadingMargin" id="0qM-iO-36R"/>
-                            <constraint firstItem="WII-MB-Sep" firstAttribute="top" secondItem="AWa-mv-3Ww" secondAttribute="bottom" id="PuR-rB-du6"/>
+                            <constraint firstItem="WII-MB-Sep" firstAttribute="top" secondItem="AWa-mv-3Ww" secondAttribute="bottom" constant="20" id="CtL-5L-raI"/>
                             <constraint firstAttribute="trailingMargin" secondItem="WII-MB-Sep" secondAttribute="trailing" id="WqO-cb-0nJ"/>
                             <constraint firstItem="Xqr-4I-r4F" firstAttribute="top" secondItem="WII-MB-Sep" secondAttribute="bottom" id="bu3-fV-dfo"/>
                         </constraints>
@@ -180,6 +189,81 @@
             </objects>
             <point key="canvasLocation" x="2997.5999999999999" y="135.38230884557723"/>
         </scene>
+        <!--Repos-->
+        <scene sceneID="kDv-co-KY4">
+            <objects>
+                <tableViewController id="r0R-hp-n6g" customClass="RepoTableViewController" customModule="GitHubViewer" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" id="cdc-Ag-Tbv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RepoTableViewCell" id="bHH-PM-Vnj" customClass="RepoTableViewCell" customModule="GitHubViewer" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="375" height="90"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bHH-PM-Vnj" id="mao-Wf-cVE">
+                                    <frame key="frameInset" width="375" height="89"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="6jz-Gj-yfM">
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H3o-nk-S3g">
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Repo Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mgs-fQ-lEi">
+                                                            <frame key="frameInset" width="258" height="29"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Repo Language" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e4D-CY-F7X">
+                                                            <frame key="frameInset" minX="258" width="101" height="29"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stargazers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Csc-v8-S3I">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Repo Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="mI0-0k-Jh4">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="6jz-Gj-yfM" firstAttribute="leading" secondItem="mao-Wf-cVE" secondAttribute="leadingMargin" id="8ck-e9-iUN"/>
+                                        <constraint firstItem="6jz-Gj-yfM" firstAttribute="top" secondItem="mao-Wf-cVE" secondAttribute="topMargin" id="jP8-VA-ZzF"/>
+                                        <constraint firstItem="6jz-Gj-yfM" firstAttribute="bottom" secondItem="mao-Wf-cVE" secondAttribute="bottomMargin" id="qbV-Ky-DVh"/>
+                                        <constraint firstItem="6jz-Gj-yfM" firstAttribute="trailing" secondItem="mao-Wf-cVE" secondAttribute="trailingMargin" id="rxY-ol-cE4"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="repoDescription" destination="mI0-0k-Jh4" id="jIG-2d-Ief"/>
+                                    <outlet property="repoLanguage" destination="e4D-CY-F7X" id="3IX-Sr-Ifu"/>
+                                    <outlet property="repoName" destination="mgs-fQ-lEi" id="FCB-km-sHq"/>
+                                    <outlet property="stargazers" destination="Csc-v8-S3I" id="vos-2e-rFq"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="r0R-hp-n6g" id="Zv8-4p-HEQ"/>
+                            <outlet property="delegate" destination="r0R-hp-n6g" id="Rcv-21-gzF"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Repos" id="R8m-x0-zQy">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="AvT-U6-0IT"/>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bmQ-Oj-fSb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3884" y="135.38230884557723"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="ljY-5q-kDa">
             <objects>
@@ -203,4 +287,7 @@
     <resources>
         <image name="unicorn.png" width="200" height="205"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="hYf-cD-ffj"/>
+    </inferredMetricsTieBreakers>
 </document>
