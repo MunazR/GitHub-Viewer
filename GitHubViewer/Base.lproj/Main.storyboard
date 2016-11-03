@@ -70,7 +70,7 @@
             </objects>
             <point key="canvasLocation" x="2057" y="137"/>
         </scene>
-        <!--GitHub User-->
+        <!--User-->
         <scene sceneID="PI6-Sd-7Yx">
             <objects>
                 <viewController id="Mhq-Nh-lmE" customClass="UserViewController" customModule="GitHubViewer" customModuleProvider="target" sceneMemberID="viewController">
@@ -87,7 +87,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
                             <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="WII-MB-Sep">
-                                <rect key="frame" x="16" y="84" width="343" height="583"/>
+                                <rect key="frame" x="16" y="40" width="343" height="583"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="249" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" image="unicorn.png" translatesAutoresizingMaskIntoConstraints="NO" id="UzN-cz-DHt">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="150"/>
@@ -180,7 +180,10 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M95-Aw-Bqq">
                                         <rect key="frame" x="0.0" y="497.5" width="343" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <state key="normal" title="User Events"/>
+                                        <state key="normal" title="Recent Activity"/>
+                                        <connections>
+                                            <segue destination="rdz-0k-keW" kind="show" identifier="showActivity" id="32q-S4-ZSD"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bio" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="00L-bS-3Wx">
                                         <rect key="frame" x="0.0" y="532.5" width="343" height="50.5"/>
@@ -199,7 +202,7 @@
                             <constraint firstItem="Xqr-4I-r4F" firstAttribute="top" secondItem="WII-MB-Sep" secondAttribute="bottom" id="bu3-fV-dfo"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="GitHub User" id="hNR-r6-w7A">
+                    <navigationItem key="navigationItem" title="User" id="hNR-r6-w7A">
                         <barButtonItem key="backBarButtonItem" title="Back" id="BoR-Lo-vMM"/>
                     </navigationItem>
                     <connections>
@@ -302,7 +305,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bmQ-Oj-fSb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3910" y="-184"/>
+            <point key="canvasLocation" x="4054" y="-558"/>
         </scene>
         <!--Users-->
         <scene sceneID="Y5i-sN-4DU">
@@ -365,7 +368,67 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="919-Bd-FYn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3909.5999999999999" y="527.58620689655174"/>
+            <point key="canvasLocation" x="4855" y="135"/>
+        </scene>
+        <!--Activity-->
+        <scene sceneID="h8L-Wi-tcA">
+            <objects>
+                <tableViewController id="rdz-0k-keW" customClass="ActivityTableViewController" customModule="GitHubViewer" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" id="Vb6-se-j9S">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ActivityTableViewCell" id="Z6T-US-0XU" customClass="ActivityTableViewCell" customModule="GitHubViewer" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="70"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Z6T-US-0XU" id="psz-G3-1fI">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="69"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="l1I-E3-ckF">
+                                            <rect key="frame" x="8" y="8" width="359" height="83"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Created at" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AfQ-N7-5Mj">
+                                                    <rect key="frame" x="0.0" y="0.0" width="359" height="37.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2sB-H4-ARn">
+                                                    <rect key="frame" x="0.0" y="37.5" width="359" height="45.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="l1I-E3-ckF" firstAttribute="trailing" secondItem="psz-G3-1fI" secondAttribute="trailingMargin" id="F7N-qV-p2l"/>
+                                        <constraint firstItem="l1I-E3-ckF" firstAttribute="leading" secondItem="psz-G3-1fI" secondAttribute="leadingMargin" id="T6H-1W-G0q"/>
+                                        <constraint firstItem="l1I-E3-ckF" firstAttribute="top" secondItem="psz-G3-1fI" secondAttribute="topMargin" id="bYz-vz-eHA"/>
+                                        <constraint firstItem="l1I-E3-ckF" firstAttribute="bottom" secondItem="psz-G3-1fI" secondAttribute="bottomMargin" id="xmK-1r-ibM"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="createdAt" destination="AfQ-N7-5Mj" id="MiR-h4-59G"/>
+                                    <outlet property="event" destination="2sB-H4-ARn" id="pi1-QL-og7"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="rdz-0k-keW" id="vp1-u1-OfD"/>
+                            <outlet property="delegate" destination="rdz-0k-keW" id="Quy-Xx-m1M"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Activity" id="jdW-0J-FBX">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="vZn-vD-xYa"/>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wcI-iT-hZg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4053.5999999999999" y="886.50674662668678"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ljY-5q-kDa">

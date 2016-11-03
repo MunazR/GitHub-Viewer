@@ -85,7 +85,10 @@ class Repo {
         id = JSON.object(forKey: "id") as? Int
         name = JSON.object(forKey: "name") as? String
         fullName = JSON.object(forKey: "full_name") as? String
-        owner = User(JSON: JSON.object(forKey: "owner") as! NSDictionary)
+        let ownerJSON = JSON.object(forKey: "owner") as? NSDictionary
+        if ownerJSON != nil {
+            owner = User(JSON: ownerJSON!)
+        }
         isPrivate = JSON.object(forKey: "private") as? Bool
         htmlUrl = JSON.object(forKey: "html_url") as? String
         description = JSON.object(forKey: "description") as? String

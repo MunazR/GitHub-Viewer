@@ -16,6 +16,9 @@
 		DD2FA7121DBEECC400C83E7B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2FA7111DBEECC400C83E7B /* User.swift */; };
 		DD3AD0AB1DCBE22600525ADB /* UserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3AD0AA1DCBE22600525ADB /* UserTableViewController.swift */; };
 		DD3AD0BB1DCBE41300525ADB /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3AD0BA1DCBE41300525ADB /* UserTableViewCell.swift */; };
+		DD3AD0BD1DCBF48600525ADB /* ActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3AD0BC1DCBF48600525ADB /* ActivityTableViewCell.swift */; };
+		DD3AD0BF1DCBF4AD00525ADB /* ActivityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3AD0BE1DCBF4AD00525ADB /* ActivityTableViewController.swift */; };
+		DD3AD0C11DCBF53B00525ADB /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3AD0C01DCBF53B00525ADB /* Activity.swift */; };
 		DD6F77451DC2C0AB005303D8 /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD6F77381DC2C00F005303D8 /* AlamofireImage.framework */; };
 		DD6F77461DC2C0AB005303D8 /* AlamofireImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DD6F77381DC2C00F005303D8 /* AlamofireImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DD85CBBA1DADA67B00C42E11 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD85CBB91DADA67B00C42E11 /* AppDelegate.swift */; };
@@ -172,6 +175,9 @@
 		DD2FA7111DBEECC400C83E7B /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		DD3AD0AA1DCBE22600525ADB /* UserTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTableViewController.swift; sourceTree = "<group>"; };
 		DD3AD0BA1DCBE41300525ADB /* UserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
+		DD3AD0BC1DCBF48600525ADB /* ActivityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityTableViewCell.swift; sourceTree = "<group>"; };
+		DD3AD0BE1DCBF4AD00525ADB /* ActivityTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityTableViewController.swift; sourceTree = "<group>"; };
+		DD3AD0C01DCBF53B00525ADB /* Activity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		DD6F77241DC2C00F005303D8 /* AlamofireImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AlamofireImage.xcodeproj; path = AlamofireImage/AlamofireImage.xcodeproj; sourceTree = "<group>"; };
 		DD85CBB61DADA67B00C42E11 /* GitHubViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD85CBB91DADA67B00C42E11 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -212,6 +218,7 @@
 			children = (
 				DD04E9981DC569FA00B69DAA /* RepoTableViewCell.swift */,
 				DD3AD0BA1DCBE41300525ADB /* UserTableViewCell.swift */,
+				DD3AD0BC1DCBF48600525ADB /* ActivityTableViewCell.swift */,
 			);
 			name = ViewCells;
 			sourceTree = "<group>";
@@ -229,6 +236,7 @@
 			children = (
 				DD2FA7111DBEECC400C83E7B /* User.swift */,
 				DD04E99A1DC56DA600B69DAA /* Repo.swift */,
+				DD3AD0C01DCBF53B00525ADB /* Activity.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -313,6 +321,7 @@
 				DD85CBD91DADBAE400C42E11 /* UserViewController.swift */,
 				DD04E9871DC5687600B69DAA /* RepoTableViewController.swift */,
 				DD3AD0AA1DCBE22600525ADB /* UserTableViewController.swift */,
+				DD3AD0BE1DCBF4AD00525ADB /* ActivityTableViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -538,11 +547,14 @@
 				DD3AD0AB1DCBE22600525ADB /* UserTableViewController.swift in Sources */,
 				DD04E9881DC5687600B69DAA /* RepoTableViewController.swift in Sources */,
 				DD85CBBC1DADA67B00C42E11 /* ViewController.swift in Sources */,
+				DD3AD0BD1DCBF48600525ADB /* ActivityTableViewCell.swift in Sources */,
 				DD3AD0BB1DCBE41300525ADB /* UserTableViewCell.swift in Sources */,
 				DD04E99B1DC56DA600B69DAA /* Repo.swift in Sources */,
 				DD04E9991DC569FA00B69DAA /* RepoTableViewCell.swift in Sources */,
+				DD3AD0BF1DCBF4AD00525ADB /* ActivityTableViewController.swift in Sources */,
 				DD85CBDA1DADBAE400C42E11 /* UserViewController.swift in Sources */,
 				DD2FA7121DBEECC400C83E7B /* User.swift in Sources */,
+				DD3AD0C11DCBF53B00525ADB /* Activity.swift in Sources */,
 				DD85CBBA1DADA67B00C42E11 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

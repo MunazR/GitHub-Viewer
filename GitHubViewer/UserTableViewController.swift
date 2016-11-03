@@ -16,6 +16,8 @@ class UserTableViewController: UITableViewController {
         case following
     }
     
+    // MARK : Properties
+    
     var username: String?
     var listType: ListType?
     var users = [User]()
@@ -113,6 +115,8 @@ class UserTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return false
     }
+    
+    // MARK: Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let userViewController = segue.destination as! UserViewController

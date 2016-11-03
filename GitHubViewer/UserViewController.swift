@@ -11,6 +11,8 @@ import Alamofire
 
 class UserViewController: UIViewController {
     
+    // MARK: Properties
+    
     var username: String?
     var user: User?
     
@@ -46,6 +48,8 @@ class UserViewController: UIViewController {
         
         stackView.isHidden = true
         activityIndicator.isHidden = false
+        
+        username = username?.trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines)
                 
         HttpClient.getUser(username: username!).responseJSON { response in
             if let result = response.result.value {
@@ -54,6 +58,10 @@ class UserViewController: UIViewController {
                 
                 if message != nil {
                     print("Invalid response: \(message!)")
+                    
+                    let alert = UIAlertController(title: "Not found", message: "Could not find user: \(self.username!)", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: self.userNotFoundHandler))
+                    self.present(alert, animated: true, completion: nil)
                     return
                 }
                 
@@ -155,6 +163,15 @@ class UserViewController: UIViewController {
             userTableViewController.username = self.user!.login
             userTableViewController.listType = UserTableViewController.ListType.following
         }
+        
+        if segue.identifier == "showActivity" {
+            let activityTableViewController = segue.destination as! ActivityTableViewController
+            activityTableViewController.username = self.user!.login
+        }
+    }
+    
+    func userNotFoundHandler(alert: UIAlertAction!) {
+        self.navigationController?.popViewController(animated: true)
     }
     
 }

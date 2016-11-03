@@ -17,6 +17,8 @@ class RepoTableViewController: UITableViewController {
         case starredRepos
     }
     
+    // MARK: Properties
+    
     var username: String?
     var listType: ListType?
     var repos = [Repo]()
