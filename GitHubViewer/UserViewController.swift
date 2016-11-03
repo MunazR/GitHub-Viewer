@@ -12,6 +12,7 @@ import Alamofire
 class UserViewController: UIViewController {
     
     var username: String?
+    var user: User?
     
     @IBOutlet weak var backButton: UIBarButtonItem!
     @IBOutlet weak var navigationBar: UINavigationItem!
@@ -46,7 +47,7 @@ class UserViewController: UIViewController {
         stackView.isHidden = true
         activityIndicator.isHidden = false
                 
-        HttpStack.getUser(username: username!).responseJSON { response in
+        HttpClient.getUser(username: username!).responseJSON { response in
             if let result = response.result.value {
                 let JSON = result as! NSDictionary
                 let message = JSON.object(forKey: "message") as? String
@@ -56,44 +57,44 @@ class UserViewController: UIViewController {
                     return
                 }
                 
-                let user = User(JSON: JSON)
+                self.user = User(JSON: JSON)
                 
-                self.navigationItem.title = user.login
+                self.navigationItem.title = self.user!.login
                 
-                if user.avatarUrl != nil {
-                    HttpStack.getImage(imageUrl: user.avatarUrl!).responseImage { response in
+                if self.user!.avatarUrl != nil {
+                    HttpClient.getImage(imageUrl: self.user!.avatarUrl!).responseImage { response in
                         if let image = response.result.value {
                             self.userAvatar.image = image
                         }
                     }
                 }
                 
-                if user.name != nil {
-                    self.userName.text = user.name!
+                if self.user!.name != nil {
+                    self.userName.text = self.user!.name!
                 } else {
                     self.userName.text = "No name"
                 }
                 
-                if user.company != nil {
-                    self.userCompany.text = user.company!
+                if self.user!.company != nil {
+                    self.userCompany.text = self.user!.company!
                 } else {
                     self.userCompany.text = "No company"
                 }
                 
-                if user.location != nil {
-                    self.userLocation.text = user.location!
+                if self.user!.location != nil {
+                    self.userLocation.text = self.user!.location!
                 } else {
                     self.userLocation.text = "No location"
                 }
                 
-                if user.email !=  nil {
-                    self.userEmail.text = user.email!
+                if self.user!.email !=  nil {
+                    self.userEmail.text = self.user!.email!
                 } else {
                     self.userEmail.text = "No email"
                 }
                 
-                if user.blog != nil {
-                    self.userBlog.text = user.blog!
+                if self.user!.blog != nil {
+                    self.userBlog.text = self.user!.blog!
                 } else {
                     self.userBlog.text = "No blog"
                 }
@@ -101,20 +102,20 @@ class UserViewController: UIViewController {
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateStyle = DateFormatter.Style.medium
                 
-                self.userJoined.text = "Joined " + dateFormatter.string(from: user.createdAt!)
-                self.userUpdated.text = "Last active " + dateFormatter.string(from: user.updatedAt!)
+                self.userJoined.text = "Joined " + dateFormatter.string(from: self.user!.createdAt!)
+                self.userUpdated.text = "Last active " + dateFormatter.string(from: self.user!.updatedAt!)
                 
-                if user.bio != nil {
-                    self.userBio.text = user.bio!
+                if self.user!.bio != nil {
+                    self.userBio.text = self.user!.bio!
                 } else {
                     self.userBio.text = "No bio"
                 }
                 
-                self.userPublicRepos.setTitle("\(user.publicRepos!) Public Repos", for: UIControlState.normal)
+                self.userPublicRepos.setTitle("\(self.user!.publicRepos!) Public Repos", for: UIControlState.normal)
                 
-                self.userFollowers.setTitle("\(user.followers!) Followers", for: UIControlState.normal)
+                self.userFollowers.setTitle("\(self.user!.followers!) Followers", for: UIControlState.normal)
                 
-                self.userFollowing.setTitle("\(user.following!) Following", for: UIControlState.normal)
+                self.userFollowing.setTitle("\(self.user!.following!) Following", for: UIControlState.normal)
                 
                 self.activityIndicator.isHidden = true
                 self.stackView.isHidden = false
@@ -125,19 +126,34 @@ class UserViewController: UIViewController {
     // MARK: Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let repoTableViewController = segue.destination as! RepoTableViewController
-        repoTableViewController.username = username!
-
         if segue.identifier == "showPublicRepos" {
+            let repoTableViewController = segue.destination as! RepoTableViewController
+            repoTableViewController.username = self.user!.login
             repoTableViewController.listType = RepoTableViewController.ListType.publicRepos
         }
         
         if segue.identifier == "showStarredRepos" {
+            let repoTableViewController = segue.destination as! RepoTableViewController
+            repoTableViewController.username = self.user!.login
             repoTableViewController.listType = RepoTableViewController.ListType.starredRepos
         }
         
         if segue.identifier == "showSubscribedRepos" {
+            let repoTableViewController = segue.destination as! RepoTableViewController
+            repoTableViewController.username = self.user!.login
             repoTableViewController.listType = RepoTableViewController.ListType.subscribedRepos
+        }
+        
+        if segue.identifier == "showFollowers" {
+            let userTableViewController = segue.destination as! UserTableViewController
+            userTableViewController.username = self.user!.login
+            userTableViewController.listType = UserTableViewController.ListType.followers
+        }
+        
+        if segue.identifier == "showFollowing" {
+            let userTableViewController = segue.destination as! UserTableViewController
+            userTableViewController.username = self.user!.login
+            userTableViewController.listType = UserTableViewController.ListType.following
         }
     }
     

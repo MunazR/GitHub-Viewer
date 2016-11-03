@@ -48,17 +48,17 @@ class RepoTableViewController: UITableViewController {
     }
     
     func loadPublicRepos() {
-        let dataRequest = HttpStack.getPublicRepos(username: username!)
+        let dataRequest = HttpClient.getPublicRepos(username: username!)
         handleResponse(dataRequest: dataRequest)
     }
     
     func loadStarredRepos() {
-        let dataRequest = HttpStack.getStarredRepos(username: username!)
+        let dataRequest = HttpClient.getStarredRepos(username: username!)
         handleResponse(dataRequest: dataRequest)
     }
     
     func loadSubscribedRepos() {
-        let dataRequest = HttpStack.getSubscribedRepos(username: username!)
+        let dataRequest = HttpClient.getSubscribedRepos(username: username!)
         handleResponse(dataRequest: dataRequest)
     }
     

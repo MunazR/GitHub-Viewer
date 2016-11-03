@@ -16,6 +16,8 @@ class HttpClient {
     static let PUBLIC_REPOS_URL = BASE_URL + "users/%@/repos"
     static let STARRED_REPOS_URL = BASE_URL + "users/%@/starred"
     static let SUBSCRIPTIONS_REPOS_URL = BASE_URL + "users/%@/subscriptions"
+    static let FOLLOWERS_URL = BASE_URL + "users/%@/followers"
+    static let FOLLOWING_URL = BASE_URL + "users/%@/following"
 
     static func getUser(username: String) -> Alamofire.DataRequest {
         return Alamofire.request(String(format: USER_URL, username))
@@ -31,6 +33,14 @@ class HttpClient {
     
     static func getSubscribedRepos(username: String) -> Alamofire.DataRequest {
         return Alamofire.request(String(format: SUBSCRIPTIONS_REPOS_URL, username))
+    }
+    
+    static func getFollowers(username: String) -> Alamofire.DataRequest {
+        return Alamofire.request(String(format: FOLLOWERS_URL, username));
+    }
+    
+    static func getFollowing(username: String) -> Alamofire.DataRequest {
+        return Alamofire.request(String(format: FOLLOWING_URL, username));
     }
     
     static func getImage(imageUrl: String) -> Alamofire.DataRequest {

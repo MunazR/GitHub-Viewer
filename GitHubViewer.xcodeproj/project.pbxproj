@@ -12,8 +12,10 @@
 		DD04E99B1DC56DA600B69DAA /* Repo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD04E99A1DC56DA600B69DAA /* Repo.swift */; };
 		DD083B1C1DBD82B600962CC9 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD87A6C41DBD81A50098F4F0 /* Alamofire.framework */; };
 		DD083B1D1DBD82B600962CC9 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DD87A6C41DBD81A50098F4F0 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DD2FA70F1DBEE9F700C83E7B /* HttpStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2FA70E1DBEE9F700C83E7B /* HttpStack.swift */; };
+		DD2FA70F1DBEE9F700C83E7B /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2FA70E1DBEE9F700C83E7B /* HttpClient.swift */; };
 		DD2FA7121DBEECC400C83E7B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2FA7111DBEECC400C83E7B /* User.swift */; };
+		DD3AD0AB1DCBE22600525ADB /* UserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3AD0AA1DCBE22600525ADB /* UserTableViewController.swift */; };
+		DD3AD0BB1DCBE41300525ADB /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3AD0BA1DCBE41300525ADB /* UserTableViewCell.swift */; };
 		DD6F77451DC2C0AB005303D8 /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD6F77381DC2C00F005303D8 /* AlamofireImage.framework */; };
 		DD6F77461DC2C0AB005303D8 /* AlamofireImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DD6F77381DC2C00F005303D8 /* AlamofireImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DD85CBBA1DADA67B00C42E11 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD85CBB91DADA67B00C42E11 /* AppDelegate.swift */; };
@@ -166,8 +168,10 @@
 		DD04E9871DC5687600B69DAA /* RepoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoTableViewController.swift; sourceTree = "<group>"; };
 		DD04E9981DC569FA00B69DAA /* RepoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoTableViewCell.swift; sourceTree = "<group>"; };
 		DD04E99A1DC56DA600B69DAA /* Repo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repo.swift; sourceTree = "<group>"; };
-		DD2FA70E1DBEE9F700C83E7B /* HttpStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpStack.swift; sourceTree = "<group>"; };
+		DD2FA70E1DBEE9F700C83E7B /* HttpClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
 		DD2FA7111DBEECC400C83E7B /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		DD3AD0AA1DCBE22600525ADB /* UserTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTableViewController.swift; sourceTree = "<group>"; };
+		DD3AD0BA1DCBE41300525ADB /* UserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		DD6F77241DC2C00F005303D8 /* AlamofireImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AlamofireImage.xcodeproj; path = AlamofireImage/AlamofireImage.xcodeproj; sourceTree = "<group>"; };
 		DD85CBB61DADA67B00C42E11 /* GitHubViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD85CBB91DADA67B00C42E11 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -207,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				DD04E9981DC569FA00B69DAA /* RepoTableViewCell.swift */,
+				DD3AD0BA1DCBE41300525ADB /* UserTableViewCell.swift */,
 			);
 			name = ViewCells;
 			sourceTree = "<group>";
@@ -214,7 +219,7 @@
 		DD2FA7061DBEE9BB00C83E7B /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				DD2FA70E1DBEE9F700C83E7B /* HttpStack.swift */,
+				DD2FA70E1DBEE9F700C83E7B /* HttpClient.swift */,
 			);
 			name = Network;
 			sourceTree = "<group>";
@@ -307,6 +312,7 @@
 				DD85CBBB1DADA67B00C42E11 /* ViewController.swift */,
 				DD85CBD91DADBAE400C42E11 /* UserViewController.swift */,
 				DD04E9871DC5687600B69DAA /* RepoTableViewController.swift */,
+				DD3AD0AA1DCBE22600525ADB /* UserTableViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -528,9 +534,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD2FA70F1DBEE9F700C83E7B /* HttpStack.swift in Sources */,
+				DD2FA70F1DBEE9F700C83E7B /* HttpClient.swift in Sources */,
+				DD3AD0AB1DCBE22600525ADB /* UserTableViewController.swift in Sources */,
 				DD04E9881DC5687600B69DAA /* RepoTableViewController.swift in Sources */,
 				DD85CBBC1DADA67B00C42E11 /* ViewController.swift in Sources */,
+				DD3AD0BB1DCBE41300525ADB /* UserTableViewCell.swift in Sources */,
 				DD04E99B1DC56DA600B69DAA /* Repo.swift in Sources */,
 				DD04E9991DC569FA00B69DAA /* RepoTableViewCell.swift in Sources */,
 				DD85CBDA1DADBAE400C42E11 /* UserViewController.swift in Sources */,
