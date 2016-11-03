@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 import AlamofireImage
 
-class HttpStack {
+class HttpClient {
     static let BASE_URL = "https://api.github.com/"
     static let USER_URL = BASE_URL + "users/%@"
     static let PUBLIC_REPOS_URL = BASE_URL + "users/%@/repos"
