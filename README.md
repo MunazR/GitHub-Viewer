@@ -12,9 +12,6 @@ I also decided to use [Alamofire](https://github.com/Alamofire/Alamofire) to han
 ### User Profile
 ![user_profile](/Screenshots/user_profile.png)
 
-### User Search
-![user_search](/Screenshots/user_search.png)
-
 ### Repository List
 ![public_repos](/Screenshots/public_repos.png)
 
